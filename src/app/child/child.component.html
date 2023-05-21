@@ -1,0 +1,18 @@
+<div class="card mt-2 mx-2" [fxFlex]="money">
+  <div class="card-body">
+    <p>Name: {{ name }}</p>
+    <p>Money ($): {{ money }}</p>
+    <button class="btn btn-success mt-2 mx-2" (click)="getMoney()">
+      Get Money
+    </button>
+    <button class="btn btn-success mt-2 mx-2" (click)="sendMoneyToParent()">
+      Send 10$ (rxJS)
+    </button>
+    <button
+      class="btn btn-success mt-2 mx-2"
+      (click)="receiveMoneyFromParent()"
+    >
+      Get 10$ (rxJS)
+    </button>
+  </div>
+</div>

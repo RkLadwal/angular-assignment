@@ -1,0 +1,40 @@
+<div>
+  <p>
+      <button *ngFor="let data of dataList; let i = index" type="button" class="btn btn-secondary mx-2"
+          (click)="addMoneyToUser(i)">Send Money to {{data.name}}</button>
+  </p>
+  <p>
+      <button *ngFor="let data of dataList;let i = index" type="button" class="btn btn-secondary mx-2"
+          (click)="getMoneyFromUser(i)">Get Money from {{data.name}}</button>
+  </p>
+</div>
+
+
+<div class="card mt-2 mx-2 d-block p-2 max-content-w">
+  <p>
+      <input class="mx-1" type="radio" name="layout" id="row" value="row" [(ngModel)]="fxLayoutDirection" />
+      <label for="row">Show children in Row</label>
+  </p>
+  <p>
+      <input class="mx-1" type="radio" name="layout" id="column" value="column" [(ngModel)]="fxLayoutDirection" />
+      <label for="column">Show children in Column</label>
+  </p>
+</div>
+
+<div [fxLayout]="fxLayoutDirection">
+  <app-child #child *ngFor="let data of dataList; let i = index" [name]="data.name" [money]="data.money"
+      (addMoney)="addRequestedMoneyToUser(i, $event)" [recordIndex]="i"></app-child>
+</div>
+<div style="border: 1px solid; padding: 5px;">
+  <div class="form-group col-5">
+      <label>User Name</label>
+      <input type="text" class="form-control mb-2" placeholder="Name" [(ngModel)]="newUserName">
+  </div>
+  <button (click)="addUser()" class="btn btn-primary">Add User</button>
+</div>
+<hr>
+
+<div>
+  <label>Point No. 11: & Point 12 Please refer to functions functionSolvePoint11,functionSolvePoint12 in
+      parent.component or view console for result</label>
+</div>
